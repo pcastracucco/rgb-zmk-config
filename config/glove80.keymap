@@ -96,12 +96,12 @@
         };
         Magic {
             bindings = <
-                  BLUE ______ ______ ORANGE ORANGE                                                          ORANGE ORANGE ______ ______   BLUE
-                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
-                ______ ______ ______  GREEN  GREEN PURPLE                                            ______ ______ ______ ______ ______ ______
-                ______ ______ ______    RED    RED  WHITE                                            ______ ______ ______ ______ ______ ______
-                ______ ______ ______ ______ ______   TEAL ORANGE ORANGE ______  ______ ______ ______ ______ ______ ______ ______ ______ ______
-                ______ ______ ______ ______ ______        ORANGE ORANGE ORANGE  ______ ______ ______        ______ ______ ______ ______ ______
+                 WHITE  WHITE  WHITE    RED    RED                                                             RED    RED  WHITE  WHITE   BLUE
+                 WHITE  WHITE  WHITE  WHITE  WHITE  WHITE                                             WHITE  WHITE  WHITE  WHITE  WHITE  WHITE
+                 WHITE  WHITE  WHITE  WHITE  GREEN PURPLE                                            PURPLE  GREEN  WHITE  WHITE  WHITE  WHITE
+                 WHITE  WHITE  WHITE  WHITE    RED  WHITE                                             WHITE    RED  WHITE  WHITE  WHITE  WHITE
+                 WHITE  WHITE  WHITE  WHITE  WHITE  WHITE ORANGE ORANGE    RED   WHITE  WHITE  WHITE  WHITE  WHITE  WHITE  WHITE  WHITE  WHITE
+                 WHITE  WHITE  WHITE  WHITE  WHITE        ORANGE ORANGE ORANGE   WHITE  WHITE  WHITE         WHITE  WHITE  WHITE  WHITE  WHITE
                 >;
             layer-id = <LAYER_Magic>;
         };
@@ -346,6 +346,12 @@
     #define _REDO       LC(Y)
     #define _SAVE       LC(S)
     #define _ALTSAVE    LA(S)
+    #define _MEDIAOUT   LA(M)
+    #define _MEDIAUP    LA(BSLH)
+    #define _MEDIADO    LA(FSLH)
+    #define _GAMEOUT    LA(Y)
+    #define _GAMEUP     LA(DOT)
+    #define _GAMEDO     LA(COMMA)
     #define _NEWTAB     LC(T)
     #define _NEXTTAB    LC(TAB)
     #define _PREVTAB    LC(LS(TAB))
@@ -354,6 +360,14 @@
     #define _4MONITOR   LA(LS(UP))
     #define _3MONITOR   LA(LS(RIGHT))
     #define _2MONITOR   LA(LS(DOWN))
+    #define _MONITORR   LG(LS(RIGHT))
+    #define _MONITORL   LG(LS(LEFT))
+    #define _WINDOWR    LG(LEFT)
+    #define _WINDOWL    LG(RIGHT)
+    #define _WINDOWMAX  LG(UP)
+    #define _WINDOWMIN  LG(DOWN)
+    #define _WINDOWU    LG(LA(UP))
+    #define _WINDOWD    LG(LA(DOWN))
     
     behaviors {
         winshorts: winshorts {
@@ -404,7 +418,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp _4MONITOR>, <&kp _2MONITOR>, <&kp _3MONITOR>;
-        }; 
+        };
     };
 };
 
@@ -423,34 +437,34 @@
 
         layer_Home {
             bindings = <
-     &to 2     &none     &none  &scrshot     &none                                                                                              &kp EQUAL      &none     &none     &none      &none
-   &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4  &kp N5                                                                              &kp N6     &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
-   &kp TAB     &kp Q     &kp W     &kp E     &kp R   &kp T                                                                               &kp Y      &kp U      &kp I     &kp O     &kp P   &kp BSLH
-     &mo 5     &kp A     &kp S     &kp D     &kp F   &kp G                                                                               &kp H      &kp J      &kp K     &kp L  &kp SEMI    &kp SQT
- &kp LSHFT     &kp Z     &kp X     &kp C     &kp V   &kp B       &cca     &mo 3  &kp _NEXTTAB  &magic LAYER_Magic 0     &none    &mo 3   &kp N      &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
- &kp LCTRL  &kp LGUI  &kp LBKT  &kp RBKT  &kp SEMI          &kp SPACE  &kp LALT       &kp RET                 &mo 4  &kp BSPC  &kp RET            &kp SQT   &kp LPAR  &kp RPAR     &none      &none
+     &to 2  &kp LS(TAB)   &kp TAB  &scrshot     &none                                                                                              &kp EQUAL      &none     &none     &none      &none
+   &kp ESC       &kp N1    &kp N2    &kp N3    &kp N4  &kp N5                                                                              &kp N6     &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
+   &kp TAB        &kp Q     &kp W     &kp E     &kp R   &kp T                                                                               &kp Y      &kp U      &kp I     &kp O     &kp P   &kp BSLH
+     &mo 5        &kp A     &kp S     &kp D     &kp F   &kp G                                                                               &kp H      &kp J      &kp K     &kp L  &kp SEMI    &kp SQT
+ &kp LSHFT        &kp Z     &kp X     &kp C     &kp V   &kp B       &cca     &mo 3  &kp _NEXTTAB  &magic LAYER_Magic 0     &none    &mo 3   &kp N      &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
+ &kp LCTRL     &kp LGUI  &kp LBKT  &kp RBKT  &kp SEMI          &kp SPACE  &kp LALT         &none                 &mo 4  &kp BSPC  &kp RET            &kp SQT   &kp LPAR  &kp RPAR     &none      &none
             >;
         };
 
         layer_Engram {
             bindings = <
-  &to 2      &none     &none  &scrshot     &none                                                                                                &none      &none    &none      &none      &to 0
-  &none    &kp ESC     &kp Q     &kp Z     &none   &none                                                                               &none    &none      &none    &none  &kp EQUAL  &kp MINUS
-  &none    &kp TAB     &kp B     &kp Y     &kp O   &kp U                                                                               &kp L    &kp D      &kp W    &kp V      &kp Q      &none
-  &mo 4      &mo 5     &kp C     &kp I     &kp E   &kp A                                                                               &kp H    &kp T      &kp S    &kp N      &kp Z   &kp BSLH
-  &none  &kp LSHFT     &kp G     &kp X     &kp J   &kp K       &cca     &mo 3  &kp _NEXTTAB  &magic LAYER_Magic 0     &none    &mo 3   &kp R    &kp M      &kp F    &kp P  &kp RSHFT   &kp FSLH
-  &none  &kp LCTRL  &kp LGUI     &none  &kp SEMI          &kp SPACE  &kp LALT       &kp RET                 &mo 4  &kp BSPC  &kp RET          &kp SQT  &kp COMMA  &kp DOT      &none      &none
+  &to 2  &kp LS(TAB)   &kp TAB  &scrshot     &none                                                                                                &none      &none    &none      &none      &to 0
+  &none      &kp ESC     &kp Q     &kp Z     &none   &none                                                                               &none    &none      &none    &none  &kp EQUAL  &kp MINUS
+  &none      &kp TAB     &kp B     &kp Y     &kp O   &kp U                                                                               &kp L    &kp D      &kp W    &kp V      &kp Q      &none
+  &mo 4        &mo 5     &kp C     &kp I     &kp E   &kp A                                                                               &kp H    &kp T      &kp S    &kp N      &kp Z   &kp BSLH
+  &none    &kp LSHFT     &kp G     &kp X     &kp J   &kp K       &cca     &mo 3  &kp _NEXTTAB  &magic LAYER_Magic 0     &none    &mo 3   &kp R    &kp M      &kp F    &kp P  &kp RSHFT   &kp FSLH
+  &none    &kp LCTRL  &kp LGUI     &none  &kp SEMI          &kp SPACE  &kp LALT         &none                 &mo 4  &kp BSPC  &kp RET          &kp SQT  &kp COMMA  &kp DOT      &none      &none
             >;
         };
 
         layer_Gaming {
             bindings = <
-  &to 0      &none     &none  &scrshot     &none                                                                                          &kp EQUAL      &none    &none     &none      &none
-  &none    &kp ESC     &kp L     &kp N     &kp G   &kp T                                                                           &none      &none      &none    &none     &none  &kp MINUS
-  &none    &kp TAB     &kp Q     &kp W     &kp E   &kp R                                                                           &kp Y      &kp U      &kp I    &kp O     &kp P   &kp BSLH
-  &mo 5  &kp LSHFT     &kp A     &kp S     &kp D   &kp F                                                                           &kp H      &kp J      &kp K    &kp L  &kp SEMI    &kp SQT
-  &none  &kp LCTRL     &kp Z     &kp X     &kp C   &kp V    &kp TAB     &kp B    &kp P  &magic LAYER_Magic 0     &none  &kp BSPC   &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-  &none   &kp LGUI  &kp LBKT  &kp RBKT  &kp SEMI          &kp SPACE  &kp LALT  &kp RET                 &mo 4  &kp BSPC   &kp RET             &trans     &trans   &trans    &trans     &trans
+  &to 0  &kp LS(TAB)   &kp TAB  &scrshot     &none                                                                                         &kp EQUAL      &none    &none     &none      &none
+  &none      &kp ESC     &kp L     &kp N     &kp G   &kp T                                                                          &none      &none      &none    &none     &none  &kp MINUS
+  &none      &kp TAB     &kp Q     &kp W     &kp E   &kp R                                                                          &kp Y      &kp U      &kp I    &kp O     &kp P   &kp BSLH
+  &mo 5    &kp LSHFT     &kp A     &kp S     &kp D   &kp F                                                                          &kp H      &kp J      &kp K    &kp L  &kp SEMI    &kp SQT
+  &none    &kp LCTRL     &kp Z     &kp X     &kp C   &kp V    &kp TAB     &kp B   &kp P  &magic LAYER_Magic 0     &none  &kp BSPC   &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+  &none     &kp LGUI  &kp LBKT  &kp RBKT  &kp SEMI          &kp SPACE  &kp LALT   &none                 &mo 4  &kp BSPC   &kp RET             &trans     &trans   &trans    &trans     &trans
             >;
         };
 
@@ -478,23 +492,23 @@
 
         layer_Mod {
             bindings = <
- &kp LC(LA(DEL))   &none           &none          &mixer          &newtab                                                                                        &kp F12     &none      &none    &none    &none
+ &kp LC(LA(DEL))   &none         &newtab          &mixer            &none                                                                                        &kp F12     &none      &none    &none    &none
        &kp GRAVE  &kp F1          &kp F2          &kp F3           &kp F4    &kp F5                                                                     &kp F6    &kp F7    &kp F8     &kp F9  &kp F10  &kp F11
           &trans  &trans        &kp HOME    &kp UP_ARROW          &kp END   &kp DEL                                                                   &kp LBKT     &none    &kp UP      &none    &none    &none
           &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp BSPC                                                                   &kp RBKT  &kp LEFT  &kp DOWN  &kp RIGHT    &none    &none
           &trans  &trans      &kp C_PREV        &kp C_PP       &kp C_NEXT     &kp M  &kp _PASTE       &hotkeys  &kp _PREVTAB   &none   &none   &none     &none     &none     &none      &none    &none    &none
-          &trans   &none           &none           &kp U            &kp O            &winshorts  &kp _AUTOFILL         &sl 6   &to 0   &to 4   &to 1               &none     &none      &none    &none    &none
+          &trans   &none           &none           &kp U            &kp O            &winshorts  &kp _AUTOFILL         &none   &to 0   &to 4   &to 1               &none     &none      &none    &none    &none
             >;
         };
 
         layer_Magic {
             bindings = <
- &bt BT_CLR   &none   &none       &sys_reset      &bootloader                                                                                 &bootloader  &sys_reset   &none   &none  &bt BT_CLR_ALL
-      &none   &none   &none            &none            &none            &none                                                         &none        &none       &none   &none   &none           &none
-      &none   &none   &none  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                         &none        &none       &none   &none   &none           &none
-      &none   &none   &none  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                         &none        &none       &none   &none   &none           &none
-      &none   &none   &none            &none            &none        &monitors   &bt_2   &bt_3         &none   &none   &none   &none   &none        &none       &none   &none   &none           &none
-      &none   &none   &none            &none            &none                    &bt_0   &bt_1  &out OUT_USB   &none   &none   &none                &none       &none   &none   &none           &none
+  &none   &none          &none      &sys_reset    &bootloader                                                                                            &bootloader       &sys_reset   &none   &none  &bt BT_CLR_ALL
+  &none   &none          &none           &none   &kp _GAMEOUT  &kp _MEDIAOUT                                                                  &none            &none            &none   &none   &none           &none
+  &none   &none  &kp _MONITORL  &kp _WINDOWMAX  &kp _MONITORR   &kp _WINDOWU                                                        &rgb_ug RGB_TOG  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI   &none   &none           &none
+  &none   &none   &kp _WINDOWL  &kp _WINDOWMIN   &kp _WINDOWR   &kp _WINDOWD                                                        &rgb_ug RGB_EFF  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD   &none   &none           &none
+  &none   &none          &none     &kp _GAMEUP   &kp _MEDIAUP      &monitors   &bt_2   &bt_3    &bt BT_CLR   &none   &none   &none            &none            &none            &none   &none   &none           &none
+  &none   &none          &none     &kp _GAMEDO   &kp _MEDIADO                  &bt_0   &bt_1  &out OUT_USB   &none   &none   &none                             &none            &none   &none   &none           &none
             >;
         };
 
