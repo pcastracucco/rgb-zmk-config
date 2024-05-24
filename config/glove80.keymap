@@ -422,15 +422,15 @@
         magicmt: magicmt {
             compatible = "zmk,behavior-hold-tap";
             label = "MAGIC_MOD_TAP";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo 6>, <&sl 6>;
         };
         magicenter: magicenter {
             compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_MOD_TAP";
-            #binding-cells = <2>;
+            label = "MAGIC_ENTER";
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo 6>, <&kp RET>;
